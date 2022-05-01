@@ -7,20 +7,26 @@ public class Main {
         SetOfStacks st = new SetOfStacks(10);
         st.getLinLstOfSt().push(new Stack(st.getSize()));
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 42; i++) {
             st.setOfStacksPush(i + 1);
             //System.out.print(st.getLinLstOfSt().get(0).getArr()[i] + " ");
         }
-        for (int i = 0; i < 10; i++) {
-            System.out.print(st.getLinLstOfSt().get(0).getArr()[i] + " ");
-            System.out.print(st.getLinLstOfSt().get(1).getArr()[i] + " ");
-             System.out.println(st.getLinLstOfSt().get(2).getArr()[i] + " ");
-            //System.out.print(st.getLinLstOfSt().get(3).getArr()[i] + " ");
-            //System.out.println(st.getLinLstOfSt().get(4).getArr()[i] + " ");
 
-        }
+        st.setOfStackPop();
+//        System.out.println(st.getLinLstOfSt().get(0).getLastIndex() + " " + st.getLinLstOfSt().get(1).getLastIndex() +
+//                " " + st.getLinLstOfSt().get(2).getLastIndex());
+        System.out.println();
+        st.popAt(3);
+        st.setOfStackPush(88);
+        st.setOfStackPush(77);
+        st.setOfStackPop();
+        st.setOfStackPop();
+        st.setOfStackPop();
+        st.setOfStackPush(77);
+        st.setOfStackPush(88);
 
-        System.out.println(st.setOfStackPop());
-        System.out.println(st.getLinLstOfSt().get(1).getArr()[st.getLinLstOfSt().get(1).getLastIndex()]);
+
+        st.print();
+
     }
 }

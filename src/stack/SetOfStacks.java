@@ -27,29 +27,45 @@ public class SetOfStacks {
         this.size = sizeOfSt;
     }
 
-    public void setOfStacksPush(int value) {
-        if (this.linLstOfSt.get(0).isFull() ) {
-            this.linLstOfSt.push(new Stack(this.size));
-        }
-        this.linLstOfSt.get(0).push(value);
 
-        if (this.linLstOfSt.get(0).isFull() ) {
+    public void setOfStackPush(int value) {
+        for (int i = linLstOfSt.size() - 1; i >= 0  ; i--) {
+            if(!this.linLstOfSt.get(i).isFull()) {
+                this.linLstOfSt.get(i).push(value);
+                break;
+            }
+        }
+        if(this.linLstOfSt.get(0).isFull()){
             this.linLstOfSt.push(new Stack(this.size));
         }
     }
 
     public int setOfStackPop() {
-        if(this.linLstOfSt.get(0).isEmpty() ) {
-            return this.linLstOfSt.get(1).pop();
+        if (this.linLstOfSt.get(0).isEmpty()) {
+            this.linLstOfSt.pop();
         }
-        else {
-            return this.linLstOfSt.get(0).pop();
-        }
-    }
-    public int popAt(int index) {
-     return 0;
+        return this.linLstOfSt.get(0).pop();
+
     }
 
+    public int popAt(int index) {
+     return linLstOfSt.get(index).pop();
+
+    }
+
+
+    public void print() {
+        for (int i = 0; i < this.size; i++) {
+            for (int j = linLstOfSt.size() - 1; j >= 0; j--) {
+                if (linLstOfSt.get(j).getLastIndex() >= i) {
+                    System.out.print(linLstOfSt.get(j).getArr()[i] + " ");
+                } else {
+                    System.out.print("x" + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
 
 
